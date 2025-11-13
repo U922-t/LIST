@@ -4,7 +4,7 @@
 // 7問ごとに group を 'q1', 'q2', 'q3', 'q4' に分けてください。
 const questions = [
     // --- 質問群1 (q1) ---
-    { text: "質問1: 新しいことにも、しり込みせずに挑戦できる", group: "q1", type: "A", reverse: true },
+    { text: "質問1: 新しいことにも、しり込みせずに挑戦できる", group: "q1", type: "A", reverse: false },
     { text: "質問2: 困難なことにも、積極的に挑戦する", group: "q1", type: "A", reverse: false },
     { text: "質問3: 初対面であっても自ら進んで話しかける", group: "q1", type: "A", reverse: false },
     { text: "質問4: ものごとの原因を追求して考えられる", group: "q1", type: "A", reverse: false },
@@ -20,17 +20,21 @@ const questions = [
     { text: "質問13: 互いの協力やチームワークを大切にして仕事を進める", group: "q2", type: "B", reverse: false },
     { text: "質問14: 困っているメンバーを見ると、すぐに手助けする", group: "q2", type: "B", reverse: false },
     // --- 質問群3 (q3) ---
-    { text: "質問15: ", group: "q3", type: "C", reverse: false },
-    { text: "質問16: ", group: "q3", type: "C", reverse: false },
-    { text: "質問17: ", group: "q3", type: "C", reverse: false },
-    { text: "質問18: ", group: "q3", type: "C", reverse: false },
-    { text: "質問19: ", group: "q3", type: "C", reverse: false },
-    { text: "質問20: ", group: "q3", type: "C", reverse: false },
-    { text: "質問21: ", group: "q3", type: "C", reverse: false },
+    { text: "質問15: 他人のやり方を認めることができる", group: "q3", type: "C", reverse: false },
+    { text: "質問16: まず相手の意見を聞いてから自分の意見を言う", group: "q3", type: "C", reverse: false },
+    { text: "質問17: 事を荒立てるようなことはしない", group: "q3", type: "C", reverse: false },
+    { text: "質問18: 周りとの調和を大切にしながらものごとを進めている", group: "q3", type: "C", reverse: false },
+    { text: "質問19: 相手の気持ちをくみながら仕事を進められる", group: "q3", type: "C", reverse: false },
+    { text: "質問20: 他者の意見に最後までしっかりと耳を傾けられる", group: "q3", type: "C", reverse: false },
+    { text: "質問21: 相手の話をよく聞いて、気持ちを受け止めようとする", group: "q3", type: "C", reverse: false },
     // --- 質問群4 (q4) ---
-    { text: "質問22: (グループDの質問)", group: "q4", type: "D", reverse: false },
-    // ... (q4の残り6問) ...
-    { text: "質問28: (グループAの質問)", group: "q4", type: "A", reverse: false },
+    { text: "質問22: 発言する際は、よく考えてから発言する", group: "q4", type: "D", reverse: false },
+    { text: "質問23: ひとり静かに、黙々と仕事が進められる", group: "q4", type: "D", reverse: false },
+    { text: "質問24: 自らの考えに固執することなく、柔軟に対応することができる", group: "q4", type: "D", reverse: false },
+    { text: "質問25: 何事も石橋をたたいて渡るほうだ", group: "q4", type: "D", reverse: false },
+    { text: "質問26: 仕事は手順・段取りを考えて効率よく進めようとする", group: "q4", type: "D", reverse: false },
+    { text: "質問27: 論理に飛躍や矛盾がないように説明することができる", group: "q4", type: "D", reverse: false },
+    { text: "質問28: ものごとを筋道立てて考えられる", group: "q4", type: "D", reverse: false },
 ];
 
 // ★ 2. 点数 (変更不要)
