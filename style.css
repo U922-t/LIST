@@ -1,11 +1,13 @@
 /* 基本スタイル */
+/* 基本スタイル */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: #f4f7f6;
     color: #333;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    /* 【変更】 center から flex-start へ (stickyのため) */
     min-height: 100vh;
     margin: 0;
     padding-top: 30px;
@@ -22,20 +24,58 @@ body {
     box-sizing: border-box;
 }
 
-/* 進捗バー */
-.progress-container {
+/* ★ 追加: 進捗バーの本体とテキストを包むラッパー */
+.progress-inner {
     width: 100%;
     background-color: #e0e0e0;
     border-radius: 20px;
     height: 20px;
     position: relative;
+    /* progress-text の基準点 */
+}
+
+/* 進捗バー */
+.progress-container {
+    /* ★ スティッキー（追従）設定 */
+    position: sticky;
+    top: 0;
+    /* 画面の最上部に固定 */
+    z-index: 10;
+
+    /* ★ 親(quiz-container)のパディングを突き抜けるための調整 */
+    margin-top: -30px;
+    /* 上のパディング(30px)を無効化 */
+    margin-left: -30px;
+    /* 左のパディング(30px)を無効化 */
+    margin-right: -30px;
+    /* 右のパディング(30px)を無効化 */
+    width: calc(100% + 60px);
+    /* 左右のパディング分(計60px)を幅に追加 */
+
+    /* ★ スティッキーヘッダーとしての見た目調整 */
+    background-color: #ffffff;
+    /* スクロール時に下が透けないよう背景色を指定 */
+    padding: 20px 30px;
+    /* 上下に20px、左右に30pxの余白を確保 */
+    box-sizing: border-box;
+    /* パディングを含めて幅を計算 */
+    border-bottom: 1px solid #eee;
+    /* 固定ヘッダーの下に境界線 */
+    border-radius: 10px 10px 0 0;
+    /* コンテナ上部の角丸を維持 */
+
+    /* ★ 既存のスタイル */
     margin-bottom: 30px;
+    /* 下の質問エリアとの間隔 */
+    height: auto;
+    /* 高さは自動調整 */
 }
 
 .progress-bar {
     height: 100%;
-    background-color: #00ff73;
-    /* メインカラー */
+    width: 0%;
+    /* JSで制御 */
+    background-color: #007bff;
     border-radius: 20px;
     transition: width 0.3s ease;
 }
@@ -55,6 +95,18 @@ body {
     margin-bottom: 35px;
     border-bottom: 1px solid #eee;
     padding-bottom: 25px;
+    text-align: center;
+    /* 【変更】 ブロック全体を中央揃えに */
+}
+
+.question-number {
+    font-size: 1.5rem;
+    /* 質問番号のサイズ */
+    font-weight: 700;
+    color: #007bff;
+    /* メインカラー */
+    margin-top: 0;
+    margin-bottom: 10px;
 }
 
 .question-block:last-child {
@@ -62,12 +114,16 @@ body {
 }
 
 /* 質問文 */
+/* 【変更】 質問本文 (pタグに変更) */
 .question-text {
-    font-size: 1.3rem;
-    /* 少し小さく */
-    font-weight: 600;
-    text-align: center;
+    font-size: 1.2rem;
+    /* 質問本文のサイズ */
+    font-weight: 500;
+    color: #333;
+    margin-top: 0;
     margin-bottom: 25px;
+    min-height: 40px;
+    /* 質問文の高さが変動してもレイアウトが崩れないように */
 }
 
 /* 選択肢コンテナ */
@@ -153,9 +209,43 @@ body {
 /* 強く賛成 */
 
 /* ★ 選択された円のスタイル */
-.option-button.selected .option-circle {
-    background-color: #008cfffa;
-    /* 選択色 */
+/* (上記 .option-button.selected .option-circle の定義は削除します) */
+
+/* 選択された円のスタイルを、:nth-child() を使って個別に定義 */
+.option-button:nth-child(6).selected .option-circle {
+    background-color: #dc3545;
+    /* 強く反対 (赤) */
+    border-color: #dc3545;
+}
+
+.option-button:nth-child(5).selected .option-circle {
+    background-color: #fd7e14;
+    /* 反対 (オレンジ) */
+    border-color: #fd7e14;
+}
+
+.option-button:nth-child(4).selected .option-circle {
+    background-color: #ffc107;
+    /* やや反対 (黄) */
+    border-color: #ffc107;
+}
+
+.option-button:nth-child(3).selected .option-circle {
+    background-color: #28a745;
+    /* やや賛成 (グレー) */
+    border-color: #28a745;
+}
+
+.option-button:nth-child(2).selected .option-circle {
+    background-color: #28a3a7;
+    /* 賛成 (緑) */
+    border-color: #28a3a7;
+}
+
+.option-button:nth-child(1).selected .option-circle {
+    background-color: #007bff;
+    /* 強く賛成 (青) */
+    border-color: #007bff;
 }
 
 /* 選択肢の左右のラベル（賛成・反対） */
@@ -205,5 +295,5 @@ body {
 
 h1 {
     text-align: center;
-    color: #0044fff8;
+    color: #006efff8;
 }
