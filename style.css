@@ -271,7 +271,7 @@ body {
 /* 次へ/診断するボタン */
 .next-button {
     display: block;
-    width: 100%;
+    width: 97%;
     padding: 15px;
     font-size: 1.2rem;
     font-weight: bold;
@@ -442,4 +442,173 @@ h1 {
 
 .type-sync h3 {
     color: #9c5b7c;
+}
+
+/* --- 注意事項エリア (12のタイプについて) --- */
+.note-section {
+    background-color: #f8f9fa;
+    /* 全体の背景を薄いグレーに */
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    /* 下のボタンとの間隔 */
+    text-align: left;
+    /* 左寄せ */
+    border: 1px solid #e9ecef;
+    /* 薄い枠線 */
+}
+
+/* 緑色の帯見出し */
+.note-title {
+    background-color: #007bff;
+    /* 画像に近い落ち着いた緑色 */
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 5px;
+    /* 角を少し丸く */
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+/* 導入文 */
+.note-intro {
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* リスト */
+.note-list {
+    padding-left: 20px;
+    /* 左のインデント */
+    margin: 0;
+}
+
+.note-list li {
+    margin-bottom: 12px;
+    /* 項目ごとの間隔 */
+    line-height: 1.6;
+    /* 行間を広めに */
+    color: #444;
+}
+
+/* リストマーカー（黒点）の代わりにチェックマークにする場合（お好みで） */
+.note-list li {
+    list-style-type: none;
+    /* 黒点を消す */
+    position: relative;
+    padding-left: 15px;
+}
+
+.note-list li::before {
+    content: "✔";
+    /* チェックマーク */
+    position: absolute;
+    left: -5px;
+    color: #007bff;
+    /* 見出しと同じ緑色 */
+    font-weight: bold;
+}
+
+/* --- 診断結果ページ (result_XX.html) 専用スタイル --- */
+
+/* タイプ名 (LIタイプなど) */
+.result-type-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.result-type-header h1 {
+    font-size: 3rem;
+    color: #007bff;
+    margin: 0;
+}
+
+/* セクション全体 */
+.result-section {
+    margin-bottom: 40px;
+    text-align: left;
+    /* 左寄せ */
+}
+
+/* 緑色の帯見出し */
+.result-section-title {
+    background-color: #007bff;
+    /* 画像のような少し淡い緑 */
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+/* 特徴リストを囲む枠線ボックス */
+.feature-box {
+    border: 1px solid #888;
+    /* グレーの枠線 */
+    background-color: #f9f9f9;
+    /* 薄いグレー背景 */
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+/* 特徴リスト (2列表示) */
+.feature-list-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* 2列 */
+    gap: 10px 30px;
+    /* 上下10px, 左右30pxの間隔 */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    /* デフォルトの点を消す */
+}
+
+/* スマホでは1列にする */
+@media (max-width: 600px) {
+    .feature-list-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 特徴リストの項目 (◆をつける) */
+.feature-list-grid li {
+    position: relative;
+    padding-left: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.feature-list-grid li::before {
+    content: "◆";
+    /* ひし形マーカー */
+    position: absolute;
+    left: 0;
+    color: #333;
+    font-size: 0.8em;
+    top: 0.2em;
+}
+
+/* 詳細説明文 */
+.result-description-text {
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+/* 啓発ポイントのリスト */
+.advice-list {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.advice-list li {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: #333;
 }
