@@ -4,31 +4,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LIST性格診断</title>
+    <title>LIST診断とは</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="quiz-container">
-        <h1>LIST診断</h1>
-        <div class="progress-container">
-            <div class="progress-inner">
-                <div class="progress-bar" style="width: 25%;"></div>
-                <div class="progress-text">25%</div>
+
+    <div class="quiz-container" style="text-align: center; padding-top: 50px; padding-bottom: 50px;">
+
+        <h1 class="landing-title">LIST診断</h1>
+
+        <div class="landing-description">
+            <p>
+                LIST診断とは、2つの軸の組み合わせによって分かれる、<br>4つのコミュニケーション・スタイルを診断するツールです。<br>
+            </p>
+            <p style="color: #f9fafc; font-weight: bold; background-color:#007bff;">
+                4つのコミュニケーション・スタイル
+            </p>
+            <img src="style.jpeg" width="600" height="400">
+            <div class="types-grid">
+                <div class="type-card type-lead">
+                    <h3><u>L</u>ead (リード)</h3>
+                    <p class="type-desc">周囲に対して積極的に働きかけ主導するスタイル。目的や目標を明確にし、困難な問題に対しても果敢にチャレンジし、達成しようとする意欲が高い傾向を示す。</p>
+                    <div class="type-features">
+                        <strong>【基本的な行動傾向】</strong>
+                        <ul>
+                            <li>ものごとの成果を重視する</li>
+                            <li>率先して範を示す</li>
+                            <li>挑戦的</li>
+                            <li>変化を求める</li>
+                            <li>シンプルで明快さを求める</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="type-card type-inspire">
+                    <h3><u>I</u>nspire (インスパイア)</h3>
+                    <p class="type-desc">明るく社交的であり、周囲を鼓舞するスタイル。人と会ったり話したりするのが好きで、相手を自分の和の中に取り込もうとする傾向を示す。</p>
+                    <div class="type-features">
+                        <strong>【基本的な行動傾向】</strong>
+                        <ul>
+                            <li>評価や評判を重視する</li>
+                            <li>他者を動機づける</li>
+                            <li>社交的</li>
+                            <li>承認を求める</li>
+                            <li>自分を売り込む</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="type-card type-think">
+                    <h3><u>T</u>hink (シンク)</h3>
+                    <p class="type-desc">何事もじっくりと思考し、距離感を保った関係を築くスタイル。論理的であることや合理的であることに重きをおき、整然とものごとを進める傾向を示す。</p>
+                    <div class="type-features">
+                        <strong>【基本的な行動傾向】</strong>
+                        <ul>
+                            <li>ものごとの品質を重視する</li>
+                            <li>感情的な振る舞いを避ける</li>
+                            <li>論理的</li>
+                            <li>緻密さ正確さを求める</li>
+                            <li>批判的に考える</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="type-card type-sync">
+                    <h3><u>S</u>ynchronize (シンクロナイズ)</h3>
+                    <p class="type-desc">何事も協調的に進めるのを好み、他者の意見や主張によく同調するスタイル。周囲との安定や調和を重んじるため、対立や摩擦を避ける傾向を示す。</p>
+                    <div class="type-features">
+                        <strong>【基本的な行動傾向】</strong>
+                        <ul>
+                            <li>人間関係を重視する</li>
+                            <li>周囲に追従する</li>
+                            <li>友好的</li>
+                            <li>安定を求める</li>
+                            <li>十分に耳を傾ける</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
+            <br><br>
+            <p style="color: #666; font-size: 0.9rem; margin-top: 20px;">
+                所要時間: 約3分<br>
+                回答後に詳しい診断結果が表示されます。
+            </p>
         </div>
 
-        <div id="quiz-area">
-        </div>
+        <a href="q1.html" class="start-button">
+            診断を開始する
+        </a>
 
-        <div class.="nav-buttons">
-            <button id="next-button" class="next-button" data-page="q1" data-next="q2.html" disabled>
-                次の質問へ
-            </button>
-        </div>
     </div>
 
-    <script src="main.js"></script>
 </body>
 
 </html>

@@ -4,7 +4,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: #f4f7f6;
     color: #333;
-    display: flex;
+    display: -webkit-flex;
     justify-content: center;
     align-items: flex-start;
     /* 【変更】 center から flex-start へ (stickyのため) */
@@ -16,7 +16,7 @@ body {
 
 .quiz-container {
     width: 90%;
-    max-width: 700px;
+    max-width: 950px;
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
@@ -297,4 +297,149 @@ body {
 h1 {
     text-align: center;
     color: #006efff8;
+    margin: 5%;
+}
+
+/* --- トップページ (index.html) 専用スタイル --- */
+
+/* LIST診断 タイトル */
+.landing-title {
+    font-size: 3rem;
+    color: #007bff;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+/* 説明文 */
+.landing-description {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 50px;
+}
+
+/* 開始ボタン */
+.start-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 20px 60px;
+    border-radius: 50px;
+    /* 丸みのあるボタン */
+}
+
+/* --- タイプ説明グリッド (LIST表) --- */
+.types-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* 2列 */
+    gap: 20px;
+    /* 箱と箱の間隔 */
+    margin-bottom: 50px;
+    text-align: left;
+    /* 文字は左寄せ */
+}
+
+/* スマホ対応: 画面が狭いときは1列にする */
+@media (max-width: 768px) {
+    .types-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* カード共通スタイル */
+.type-card {
+    background-color: #fff;
+    border: 3px solid #ccc;
+    /* デフォルトの線 */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.type-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.type-card u {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.type-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+.type-features strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.type-features ul {
+    margin: 0;
+    padding-left: 20px;
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.type-features li {
+    margin-bottom: 3px;
+}
+
+/* --- 各タイプの色設定 (画像の枠線色を再現) --- */
+
+/* Lead (青系) */
+.type-lead {
+    border-color: #5c9bd5;
+    background-color: #f4f8fc;
+    /* 薄い青背景(オプション) */
+}
+
+.type-lead h3 {
+    color: #356aa0;
+}
+
+/* Inspire (オレンジ/茶色系) */
+.type-inspire {
+    border-color: #d49d7a;
+    background-color: #fcf7f4;
+    /* 薄いオレンジ背景 */
+}
+
+.type-inspire h3 {
+    color: #a8663d;
+}
+
+/* Think (緑/青緑系) */
+.type-think {
+    border-color: #6fa8a1;
+    background-color: #f0f8f7;
+    /* 薄い緑背景 */
+}
+
+.type-think h3 {
+    color: #3e756e;
+}
+
+/* Synchronize (ピンク/紫系) */
+.type-sync {
+    border-color: #cf9eb7;
+    background-color: #fcf5f9;
+    /* 薄いピンク背景 */
+}
+
+.type-sync h3 {
+    color: #9c5b7c;
 }
