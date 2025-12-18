@@ -1197,7 +1197,7 @@ h1 {
     /* 枠の下端より外へ */
     left: 50%;
     transform: translate(-50%, 50%);
-    border: 3px solid var(--mat-teal);
+    border: 3px solid var(--mat-red);
     color: #333;
 }
 
