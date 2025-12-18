@@ -269,7 +269,7 @@ body {
 }
 
 /* 次へ/診断するボタン */
-.next-button {
+.next-button1 {
     display: block;
     width: 97%;
     padding: 15px;
@@ -284,12 +284,12 @@ body {
     text-align: center;
 }
 
-.next-button:hover {
+.next-button1:hover {
     background-color: #0056b3;
 }
 
 /* 無効状態のボタン */
-.next-button:disabled {
+.next-button1:disabled {
     background-color: #ccc;
     cursor: not-allowed;
 }
@@ -871,14 +871,6 @@ h1 {
     margin-bottom: 5px;
 }
 
-/* リンクボタンのエリア */
-.nav-links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
-
 /* サブボタン（白抜きボタン） */
 .sub-button {
     display: inline-block;
@@ -913,4 +905,351 @@ h1 {
     cursor: pointer;
     transition: background-color 0.2s ease;
     text-align: center;
+}
+
+/* --- リンクボタンのエリア（横並び修正版） --- */
+/* --- リンクボタンエリア（横並び・同じ長さ） --- */
+.nav-links {
+    display: flex;
+    justify-content: center;
+    /* 中央寄せ */
+    gap: 20px;
+    /* ボタン間の隙間 */
+    flex-wrap: wrap;
+    /* スマホで画面が狭いときは自動で縦になる */
+    margin-top: 30px;
+    padding-bottom: 40px;
+    /* 下に少し余白 */
+}
+
+/* ボタンの共通設定 */
+.nav-links .sub-button,
+.nav-links .next-button {
+    width: 280px;
+    /* ★ここで幅を固定して長さを揃える */
+    min-width: auto;
+    /* 以前の設定をリセット */
+    max-width: 100%;
+    /* スマホではみ出さないように */
+
+    display: flex;
+    /* 文字をど真ん中に配置 */
+    justify-content: center;
+    align-items: center;
+
+    padding: 12px 10px;
+    /* 上下12px, 左右10px */
+    margin: 0;
+    /* 余計なマージンを削除 */
+    box-sizing: border-box;
+    /* 枠線を含めたサイズ計算 */
+    text-align: center;
+}
+
+/* --- マトリックス図 (最終修正版V3) のスタイル --- */
+
+/* ★ カラーパレット定義 (画像から抽出) */
+:root {
+    --mat-blue: #2d74c4;
+    /* Leadの青 */
+    --mat-orange: #ed7d31;
+    /* Inspireのオレンジ */
+    --mat-red: #ea6763;
+    /* Syncのサーモンレッド */
+    --mat-teal: #46abb8;
+    /* Thinkのティールグリーン */
+}
+
+/* 全体のコンテナ */
+.matrix-v3-container {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    /* 少しだけ小さくして余白確保 */
+    aspect-ratio: 1 / 1;
+    margin: 70px auto;
+    /* ★上下の余白を70pxに拡大（ラベル用） */
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* 4色の枠線を作るボックス */
+.matrix-v3-border-box {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    /* 角丸 */
+    padding: 8px;
+    /* 枠線の太さ */
+    box-sizing: border-box;
+
+    /* 4色をきれいに分割するグラデーション */
+    background: conic-gradient(var(--mat-orange) 0deg 90deg,
+            /* 右上: オレンジ */
+            var(--mat-red) 90deg 180deg,
+            /* 右下: 赤 */
+            var(--mat-teal) 180deg 270deg,
+            /* 左下: 緑 */
+            var(--mat-blue) 270deg 360deg
+            /* 左上: 青 */
+        );
+}
+
+/* 内側の白いボックス */
+.matrix-v3-inner {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 6px;
+    /* 内側の角丸 */
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+/* --- 黒い軸線 --- */
+.matrix-v3-axis {
+    position: absolute;
+    background-color: #000;
+    z-index: 1;
+}
+
+.axis-vert {
+    top: 15px;
+    bottom: 15px;
+    left: 50%;
+    width: 2px;
+    transform: translateX(-50%);
+}
+
+.axis-horiz {
+    left: 15px;
+    right: 15px;
+    top: 50%;
+    height: 2px;
+    transform: translateY(-50%);
+}
+
+/* 軸の矢印 (擬似要素で三角形) */
+.axis-vert::before,
+.axis-vert::after,
+.axis-horiz::before,
+.axis-horiz::after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+}
+
+/* 上矢印 */
+.axis-vert::before {
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 6px 10px 6px;
+    border-color: transparent transparent #000 transparent;
+}
+
+/* 下矢印 */
+.axis-vert::after {
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px 6px 0 6px;
+    border-color: #000 transparent transparent transparent;
+}
+
+/* 左矢印 */
+.axis-horiz::before {
+    left: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 6px 10px 6px 0;
+    border-color: transparent #000 transparent transparent;
+}
+
+/* 右矢印 */
+.axis-horiz::after {
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 6px 0 6px 10px;
+    border-color: transparent transparent transparent #000;
+}
+
+/* --- 軸の説明テキスト --- */
+.matrix-v3-axis-text {
+    position: absolute;
+    font-size: 0.75rem;
+    color: #333;
+    background-color: #fff;
+    padding: 2px 4px;
+    z-index: 2;
+}
+
+.text-vert {
+    top: 22%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+    white-space: nowrap;
+}
+
+.text-horiz {
+    top: 50%;
+    right: 22%;
+    transform: translate(50%, -50%);
+    white-space: nowrap;
+}
+
+/* --- 4つの象限テキスト --- */
+.matrix-v3-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 5px;
+    z-index: 3;
+}
+
+.matrix-v3-content h3 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 500;
+    font-family: 'Futura', 'Century Gothic', sans-serif;
+    /* 英語フォントをスタイリッシュに */
+}
+
+.matrix-v3-content p {
+    margin: 5px 0 0 0;
+    font-size: 0.8rem;
+    color: #444;
+    font-weight: bold;
+}
+
+/* グリッド配置 */
+.pos-tl {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.pos-tr {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.pos-bl {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.pos-br {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+/* --- 丸いラベル --- */
+.matrix-v3-label {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    /* 影を少し強く */
+}
+
+/* 丸枠の色指定 */
+.label-top {
+    top: -35px;
+    /* 枠の上端より外へ */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* 中央揃え */
+    border: 3px solid var(--mat-blue);
+    color: #333;
+}
+
+/* 下: 受動 */
+.label-bottom {
+    bottom: -35px;
+    /* 枠の下端より外へ */
+    left: 50%;
+    transform: translate(-50%, 50%);
+    border: 3px solid var(--mat-teal);
+    color: #333;
+}
+
+.label-left {
+    left: -35px;
+    /* 枠の左端より外へ */
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid var(--mat-teal);
+    color: #333;
+}
+
+/* 右: 感性 */
+.label-right {
+    right: -35px;
+    /* 枠の右端より外へ */
+    top: 50%;
+    transform: translate(50%, -50%);
+    border: 3px solid var(--mat-orange);
+    color: #333;
+}
+
+/* --- スマホ対応 --- */
+@media (max-width: 500px) {
+    .matrix-v3-container {
+        max-width: 280px;
+        margin: 60px auto;
+    }
+
+    /* コンテンツ文字サイズ微調整 */
+    .matrix-v3-border-box {
+        padding: 6px;
+    }
+
+    .matrix-v3-content h3 {
+        font-size: 1.3rem;
+    }
+
+    .matrix-v3-content p {
+        font-size: 0.6rem;
+    }
+
+    .matrix-v3-axis-text {
+        font-size: 0.6rem;
+    }
+
+    /* ラベルサイズ微調整 */
+    .matrix-v3-label {
+        width: 40px;
+        height: 40px;
+        font-size: 0.75rem;
+        border-width: 2px;
+    }
+
+    /* スマホでの外出し距離調整 */
+    .label-top {
+        top: -25px;
+    }
+
+    .label-bottom {
+        bottom: -25px;
+    }
+
+    .label-left {
+        left: -25px;
+    }
+
+    .label-right {
+        right: -25px;
+    }
 }
